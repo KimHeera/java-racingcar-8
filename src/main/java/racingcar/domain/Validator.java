@@ -31,4 +31,10 @@ public class Validator {
             throw new IllegalArgumentException("[ERROR] 자동차 이름의 길이는 5자 이하만 가능합니다.");
         }
     }
+
+    public static void validateCount(int tryCnt){
+        if(tryCnt < 0){
+            throw new IllegalArgumentException("[ERROR] 이동 횟수는 양수로만 입력 가능합니다.");
+        }
+    }
 }
