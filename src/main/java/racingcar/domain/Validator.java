@@ -3,9 +3,9 @@ package racingcar.domain;
 import java.util.List;
 
 public class Validator {
-    final int MAX_NAME_LENGTH =5;
+    final static int MAX_NAME_LENGTH =5;
 
-    public void validateNames(String inputCarName){
+    public static List<String> validateNames(String inputCarName){
         inputCarName = inputCarName.trim();
 
         String[] splitName = inputCarName.split(",");
@@ -18,9 +18,11 @@ public class Validator {
         for(String name : carNames){
             validateSingleName(name.trim());
         }
+
+        return carNames;
     }
 
-    public void validateSingleName(String name){
+    private static void validateSingleName(String name){
         if(name.isEmpty()){
             throw new IllegalArgumentException("[ERROR] 자동차 이름은 빈 값일 수 없습니다.");
         }
