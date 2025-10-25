@@ -18,4 +18,12 @@ public class Car {
     private boolean isMovable(int randNumber){
         return randNumber >= 4;
     }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getPosition(){
+        return position;
+    }
 }

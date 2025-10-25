@@ -16,6 +16,7 @@ public class RacingController {
             readRacingSet();
 
             // 게임 실행 및 결과 출력
+            startGame();
         } catch(IllegalArgumentException e){
             //OutputView를 통해 오류 메시지 출력
         }
@@ -32,5 +33,17 @@ public class RacingController {
 
         this.tryCnt = inputView.readTryCount();
         Validator.validateCount(this.tryCnt);
+    }
+
+    private void startGame(){
+        // 이동 횟수만큼 반복
+        for(int i =0 ; i < tryCnt ; i++){
+            racingGame.moveRound();
+
+            List<Car> roundResult = racingGame.getRoundResult();
+            outputView.currentState(roundResult);
+        }
+
+        // 이동 횟수가 0이면 position의 max값을 가진 이름 출력. if 공동우승자의 경우 쉼표로 구분하여 함께 출력
     }
 }

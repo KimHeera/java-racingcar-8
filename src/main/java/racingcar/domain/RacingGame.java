@@ -28,5 +28,9 @@ public class RacingGame {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public List<Car> getRoundResult(){
+        return carList;
+    }
+
     //우승자 가리기
 }
