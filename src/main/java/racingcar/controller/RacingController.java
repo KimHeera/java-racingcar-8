@@ -44,6 +44,7 @@ public class RacingController {
             outputView.currentState(roundResult);
         }
 
-        // 이동 횟수가 0이면 position의 max값을 가진 이름 출력. if 공동우승자의 경우 쉼표로 구분하여 함께 출력
+        List<String> winners = racingGame.getWinner();
+        outputView.finalWinners(winners);
     }
 }

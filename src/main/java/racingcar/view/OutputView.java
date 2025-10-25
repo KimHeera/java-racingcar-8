@@ -4,7 +4,10 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class OutputView {
-    final String HYPHEN = "-";
+    private static final String HYPHEN = "-";
+    private static final String WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String DELIMITER = ", ";
+
     //carList 입력받아서 각 차의 결과값을 예시대로 출력하기
     public void currentState(List<Car> cars){
         for(Car car : cars){
@@ -19,4 +22,14 @@ public class OutputView {
     }
 
     //결과값 출력하기
+    public void finalWinner(String winner){
+        System.out.println("최종 우승자 : " + winner);
+    }
+
+    public void finalWinners(List<String> winners){
+        String result = String.join(DELIMITER, winners);
+
+        System.out.println(WINNER_MESSAGE + result);
+    }
+
 }
