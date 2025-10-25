@@ -37,6 +37,8 @@ public class RacingController {
 
     private void startGame(){
         // 이동 횟수만큼 반복
+        outputView.executeResult();
+
         for(int i =0 ; i < tryCnt ; i++){
             racingGame.moveRound();
 
