@@ -12,13 +12,11 @@ public class RacingController {
 
     public void run(){
         try{
-            // 입력 및 model 실행
             readRacingSet();
 
-            // 게임 실행 및 결과 출력
             startGame();
         } catch(IllegalArgumentException e){
-            //OutputView를 통해 오류 메시지 출력
+            outputView.printError(e.getMessage());
         }
 
     }
@@ -36,7 +34,6 @@ public class RacingController {
     }
 
     private void startGame(){
-        // 이동 횟수만큼 반복
         outputView.executeResult();
 
         for(int i =0 ; i < tryCnt ; i++){

@@ -8,6 +8,7 @@ public class OutputView {
     private static final String EXECUTE_RESULT = "\n실행 결과";
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private static final String DELIMITER = ", ";
+    private static final String ERROR_PREFIX = "[ERROR] ";
 
     //carList 입력받아서 각 차의 결과값을 예시대로 출력하기
     public void executeResult(){
@@ -39,4 +40,7 @@ public class OutputView {
         System.out.println(WINNER_MESSAGE + result);
     }
 
+    public void printError(String errorMsg){
+        System.err.println(ERROR_PREFIX + errorMsg);
+    }
 }
