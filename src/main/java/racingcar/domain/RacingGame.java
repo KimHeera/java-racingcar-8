@@ -35,26 +35,8 @@ public class RacingGame {
 
     //우승자 가리기
     public List<String> getWinner(){
-        int max = 0;
+        int max = comparePosition();
 
-        for(Car car : carList){
-            max = comparePosition(max, car.getPosition());
-        }
-
-        return winnersList(max);
-    }
-
-    private int comparePosition(int max, int position){
-        if(position > max){
-            int tmp = max;
-            max = position;
-            position = tmp;
-        }
-
-        return max;
-    }
-
-    private List<String> winnersList(int max){
         List<String> winners = new ArrayList<>();
 
         for(Car car : carList){
@@ -64,5 +46,15 @@ public class RacingGame {
         }
 
         return winners;
+    }
+
+    private int comparePosition(){
+        int max = 0;
+
+        for (Car car : carList) { // Depth 1
+            max = Math.max(max, car.getPosition());
+        }
+
+        return max;
     }
 }
