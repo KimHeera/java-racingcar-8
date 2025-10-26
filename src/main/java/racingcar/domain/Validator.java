@@ -8,7 +8,7 @@ public class Validator {
     public static List<String> validateNames(String inputCarName){
         inputCarName = inputCarName.trim();
 
-        String[] splitName = inputCarName.split(",");
+        String[] splitName = inputCarName.split(",", -1);
         List<String> carNames = List.of(splitName);
 
         if(carNames.isEmpty() && inputCarName.isEmpty()){
@@ -32,9 +32,17 @@ public class Validator {
         }
     }
 
-    public static void validateCount(int tryCnt){
-        if(tryCnt <= 0){
-            throw new IllegalArgumentException("이동 횟수는 양수로만 입력 가능합니다.");
+    public static int validateCount(String tryCntStr){
+        try {
+            int tryCnt = Integer.parseInt(tryCntStr);
+
+            if(tryCnt <= 0){
+                throw new IllegalArgumentException("이동 횟수는 양수로만 입력 가능합니다.");
+            }
+
+            return tryCnt;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("이동 횟수는 숫자로만 입력 가능합니다.");
         }
     }
 }

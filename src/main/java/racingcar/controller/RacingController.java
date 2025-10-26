@@ -29,8 +29,8 @@ public class RacingController {
         List<Car> carList = CarFactory.createCars(carNames);
         this.racingGame = new RacingGame(carList);
 
-        this.tryCnt = inputView.readTryCount();
-        Validator.validateCount(this.tryCnt);
+        String tryCntStr = inputView.readTryCount();
+        this.tryCnt = Validator.validateCount(tryCntStr);
     }
 
     private void startGame(){
