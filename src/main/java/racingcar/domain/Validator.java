@@ -33,7 +33,7 @@ public class Validator {
     }
 
     public static void validateCount(int tryCnt){
-        if(tryCnt < 0){
+        if(tryCnt <= 0){
             throw new IllegalArgumentException("이동 횟수는 양수로만 입력 가능합니다.");
         }
     }
