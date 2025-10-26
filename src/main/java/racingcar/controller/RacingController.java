@@ -11,17 +11,11 @@ public class RacingController {
     private int tryCnt;
 
     public void run(){
-        try{
-            readRacingSet();
-
-            startGame();
-        } catch(IllegalArgumentException e){
-            outputView.printError(e.getMessage());
-        }
-
+        readRacingSet();
+        startGame();
     }
 
-    private void readRacingSet(){
+    private void readRacingSet() throws IllegalArgumentException {
         String inputCarName = inputView.readCarName();
 
         List<String> carNames = Validator.validateNames(inputCarName);

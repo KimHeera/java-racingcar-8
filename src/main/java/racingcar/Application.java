@@ -1,9 +1,17 @@
 package racingcar;
 
 import racingcar.controller.RacingController;
+import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        new RacingController().run();
+        RacingController controller = new RacingController();
+        OutputView outputView = new OutputView();
+
+        try{
+            controller.run();
+        } catch (RuntimeException e) {
+            outputView.printError(e.getMessage());
+        }
     }
 }
