@@ -12,6 +12,10 @@ public class Application {
             controller.run();
         } catch (IllegalArgumentException e) {
             outputView.printError(e.getMessage());
+
+            throw e;
+        } catch (RuntimeException e){
+            throw e;
         }
     }
 }
