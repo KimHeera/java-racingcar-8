@@ -10,7 +10,7 @@ public class Application {
 
         try{
             controller.run();
-        } catch (RuntimeException e) {
+        } catch (IllegalArgumentException e) {
             outputView.printError(e.getMessage());
         }
     }
